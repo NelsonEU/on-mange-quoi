@@ -54,6 +54,7 @@ class Home extends Component {
   }
 
   _shuffle() {
+    if (this.state.currentRecipe && this.state.showRecipe) this._showRecipe(this.state.currentRecipe);
     this.setState({
       isLoadingRecipes: true
     });
@@ -68,7 +69,7 @@ class Home extends Component {
         showRecipe: false,
         currentRecipe: null,
         showRecipeClass: `showRecipe ${showRecipePosition}`,
-        currentTimeout: setTimeout(() => this._resetRecipePostion(), 800)
+        currentTimeout: setTimeout(() => this._resetRecipePostion(), 500)
       });
 
     } else {
