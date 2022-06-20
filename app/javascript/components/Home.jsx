@@ -14,13 +14,15 @@ class Home extends Component {
       external: {},
       isLoadingRecipes: true,
       showRecipe: false,
-      currentPicture: null,
-      showRecipeClass: 'showRecipe'
+      currentRecipe: null,
+      showRecipeClass: 'showRecipe',
+      currentTimeout: null
     };
 
     this._shuffle = this._shuffle.bind(this);
     this._showRecipe = this._showRecipe.bind(this);
     this._fetchRecipes = this._fetchRecipes.bind(this);
+    this._resetRecipePostion = this._resetRecipePostion.bind(this);
   }
 
   componentDidMount() {
@@ -58,11 +60,30 @@ class Home extends Component {
     this._fetchRecipes();
   }
 
-  _showRecipe(currentPicture) {
+  _showRecipe(currentRecipe) {
+    if (this.state.currentTimeout) clearTimeout(this.state.currentTimeout);
+    const showRecipePosition = this.state.local.idMeal === currentRecipe.idMeal ? 'showRecipeRight' : 'showRecipeLeft';
+    if (this.state.showRecipe) {
+      this.setState({
+        showRecipe: false,
+        currentRecipe: null,
+        showRecipeClass: `showRecipe ${showRecipePosition}`,
+        currentTimeout: setTimeout(() => this._resetRecipePostion(), 800)
+      });
+
+    } else {
+      this.setState({
+        showRecipe: true,
+        currentRecipe: currentRecipe,
+        showRecipeClass: `showRecipe showRecipeActive ${showRecipePosition}`,
+        currentTimeout: null
+      });
+    }
+  }
+
+  _resetRecipePostion() {
     this.setState({
-      showRecipe: true,
-      currentPicture: currentPicture,
-      showRecipeClass: 'showRecipe visible'
+      showRecipeClass: `showRecipe`
     });
   }
 

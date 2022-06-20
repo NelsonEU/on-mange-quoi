@@ -23,7 +23,7 @@
 
 .showRecipe {
   overflow: hidden;
-  transition: top 0.75s ease;
+  transition: all 0.7s ease;
   height: 100%;
   position: absolute;
   width: 50%;
@@ -35,19 +35,17 @@
   padding: 64px;
   bottom: 100%;
   top: 100%;
-
-  left: 50%;
 }
 
-.showRecipe.visible {
+.showRecipeActive {
   bottom: unset !important;
   top: 0 !important;
 }
 
-.showRecipe.visible.leftRecipe {
+.showRecipeLeft {
   left: 0;
 }
 
-.showRecipe.visible.rightRecipe {
+.showRecipeRight {
   left: 50%;
 }
