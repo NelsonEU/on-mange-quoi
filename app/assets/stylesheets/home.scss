@@ -1,0 +1,22 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.home {
+  height: 100%;
+}
+
+.shuffleContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.primaryTitle {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.secondaryTitle {
+  font-size: 15px;
+  line-height: 18px;
+}

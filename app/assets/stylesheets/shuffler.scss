@@ -1,0 +1,22 @@
+.shuffler {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #f3aa20;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  z-index: 3;
+  transform: scale(1) translateY(-50%) translateX(-50%);
+  transition: transform 330ms ease-in-out;
+}
+
+.shuffler:hover {
+  transform: scale(1.25) translateY(-40%) translateX(-40%);
+}
