@@ -20,3 +20,34 @@
   font-size: 15px;
   line-height: 18px;
 }
+
+.showRecipe {
+  overflow: hidden;
+  transition: top 0.75s ease;
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  z-index: 3;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 64px;
+  bottom: 100%;
+  top: 100%;
+
+  left: 50%;
+}
+
+.showRecipe.visible {
+  bottom: unset !important;
+  top: 0 !important;
+}
+
+.showRecipe.visible.leftRecipe {
+  left: 0;
+}
+
+.showRecipe.visible.rightRecipe {
+  left: 50%;
+}

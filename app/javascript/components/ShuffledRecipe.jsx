@@ -28,7 +28,7 @@ class ShuffledRecipe extends Component {
       <Color src={this.props.picture.strMealThumb} crossOrigin="anonymous" format="hex">
         {({ data, loading, error }) => {
           return (
-          <div className={this.state.recipeClassName} recipe style={{ backgroundColor: data }}>
+          <div className={this.state.recipeClassName} recipe style={{ backgroundColor: data }} onClick={() => this.props.showRecipe(this.props.picture)}>
             <h1 className={this.state.titleClassName}>{this.props.picture.strMeal} </h1>
             <img className={this.state.imgClassName} src={this.props.picture.strMealThumb} />
           </div>

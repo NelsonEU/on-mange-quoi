@@ -12,10 +12,14 @@ class Home extends Component {
     this.state = {
       local: {},
       external: {},
-      isLoadingRecipes: true
+      isLoadingRecipes: true,
+      showRecipe: false,
+      currentPicture: null,
+      showRecipeClass: 'showRecipe'
     };
 
     this._shuffle = this._shuffle.bind(this);
+    this._showRecipe = this._showRecipe.bind(this);
     this._fetchRecipes = this._fetchRecipes.bind(this);
   }
 
@@ -35,8 +39,13 @@ class Home extends Component {
   _renderRecipes() {
     return (
       <div className="shuffleContainer">
-        <ShuffledRecipe picture={this.state.local} position='left'/>
-        <ShuffledRecipe picture={this.state.external} position='right'/>
+        <ShuffledRecipe picture={this.state.local} showRecipe={this._showRecipe} position='left'/>
+        <ShuffledRecipe picture={this.state.external} showRecipe={this._showRecipe} position='right'/>
+        <div className={this.state.showRecipeClass}>
+            <h1>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+            labore wes anderson cred nesciunt sapiente ea proident.</h1>
+        </div>
         <Shuffler shuffle={this._shuffle}/>
       </div>
     )
@@ -47,6 +56,14 @@ class Home extends Component {
       isLoadingRecipes: true
     });
     this._fetchRecipes();
+  }
+
+  _showRecipe(currentPicture) {
+    this.setState({
+      showRecipe: true,
+      currentPicture: currentPicture,
+      showRecipeClass: 'showRecipe visible'
+    });
   }
 
   _fetchRecipes() {
