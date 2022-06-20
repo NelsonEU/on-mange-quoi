@@ -16,7 +16,8 @@ class Home extends Component {
       showRecipe: false,
       currentRecipe: null,
       showRecipeClass: 'showRecipe',
-      currentTimeout: null
+      currentTimeout: null,
+      showRecipeStyle: { display: 'none' }
     };
 
     this._shuffle = this._shuffle.bind(this);
@@ -43,10 +44,12 @@ class Home extends Component {
       <div className="shuffleContainer">
         <ShuffledRecipe picture={this.state.local} showRecipe={this._showRecipe} position='left'/>
         <ShuffledRecipe picture={this.state.external} showRecipe={this._showRecipe} position='right'/>
-        <div className={this.state.showRecipeClass}>
+        <div className={this.state.showRecipeClass} style={this.state.showRecipeStyle}>
+          <div>
             <h1>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
             terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
             labore wes anderson cred nesciunt sapiente ea proident.</h1>
+          </div>
         </div>
         <Shuffler shuffle={this._shuffle}/>
       </div>
@@ -75,16 +78,23 @@ class Home extends Component {
     } else {
       this.setState({
         showRecipe: true,
+        showRecipeStyle: { display: 'flex' },
         currentRecipe: currentRecipe,
-        showRecipeClass: `showRecipe showRecipeActive ${showRecipePosition}`,
-        currentTimeout: null
-      });
+        currentTimeout: setTimeout(() => this._showRecipePosition(showRecipePosition), 100)
+      })
     }
+  }
+
+  _showRecipePosition(showRecipePosition) {
+    this.setState({
+      showRecipeClass: `showRecipe showRecipeActive ${showRecipePosition}`
+    });
   }
 
   _resetRecipePostion() {
     this.setState({
-      showRecipeClass: `showRecipe`
+      showRecipeClass: `showRecipe`,
+      showRecipeStyle: { display: 'none' }
     });
   }
 
