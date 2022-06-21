@@ -27,7 +27,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this._fetchRecipes();
+    this._fetchRecipes(1000);
   }
 
   render() {
@@ -44,6 +44,7 @@ class Home extends Component {
       <div className="shuffleContainer">
         <ShuffledRecipe picture={this.state.local} showRecipe={this._showRecipe} position='left'/>
         <ShuffledRecipe picture={this.state.external} showRecipe={this._showRecipe} position='right'/>
+        <Shuffler shuffle={this._shuffle}/>
         <div className={this.state.showRecipeClass} style={this.state.showRecipeStyle}>
           <div>
             <h1>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
@@ -51,7 +52,6 @@ class Home extends Component {
             labore wes anderson cred nesciunt sapiente ea proident.</h1>
           </div>
         </div>
-        <Shuffler shuffle={this._shuffle}/>
       </div>
     )
   }
@@ -98,7 +98,7 @@ class Home extends Component {
     });
   }
 
-  _fetchRecipes() {
+  _fetchRecipes(stopLoading = 200) {
     fetch(`${window.origin}/api/private/recipes/index`)
       .then((res) => res.json())
       .then((data) => {
@@ -106,7 +106,7 @@ class Home extends Component {
           local: data.local.meals[0],
           external: data.external.meals[0]
         });
-        setTimeout(this._stopLoading.bind(this), 200);
+        setTimeout(this._stopLoading.bind(this), stopLoading);
       })
       .catch((err) => {
         console.log(err);
