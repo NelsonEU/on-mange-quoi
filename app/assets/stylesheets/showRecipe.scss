@@ -8,6 +8,8 @@
   padding: 64px;
   bottom: 100%;
   top: 100%;
+  left: 0%;
+    right: 0%;
 @media (max-width: 600px) {
     transition: left 0.5s ease-in-out, right 0.5s ease-in-out, bottom 0.5s ease-in-out, top 0.5s ease-in-out;
   }

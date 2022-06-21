@@ -44,7 +44,7 @@ class Home extends Component {
         <div className="shuffleContainer">
           <ShuffledRecipe recipe={this.state.local} showRecipe={this._showRecipe} position='left'/>
           <ShuffledRecipe recipe={this.state.external} showRecipe={this._showRecipe} position='right'/>
-          <Shuffler shuffle={this._shuffle} isRecipeShown={this.state.showRecipe}/>
+          <Shuffler shuffle={this._shuffle} isRecipeShown={this.state.currentRecipe != null}/>
         </div>
         <ShowRecipe recipe={this.state.currentRecipe} showRecipeClass={this.state.showRecipeClass} hideRecipe={this._showRecipe}/>
       </div>
