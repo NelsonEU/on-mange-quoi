@@ -8,12 +8,12 @@ class ShuffledRecipe extends Component {
     super(props);
     this._formatIngredients = this._formatIngredients.bind(this);
     this._capitalize = this._capitalize.bind(this);
-    console.log(props.picture);
+    console.log(props.recipe);
     this.state = {
       recipeClassName: `${props.position}Recipe recipe`,
       imgClassName: `${props.position}Img recipeImg`,
       titleClassName: `${props.position}RecipeTitle recipeTitle`,
-      truncatedDescription: props.picture.strInstructions.length > 500 ? props.picture.strInstructions.slice(0, 500)+ '...' : props.picture.strInstructions,
+      truncatedDescription: props.recipe.strInstructions.length > 500 ? props.recipe.strInstructions.slice(0, 500)+ '...' : props.recipe.strInstructions,
       ingredients: [],
       shortIngredientLists: []
     };
@@ -25,12 +25,12 @@ class ShuffledRecipe extends Component {
 
   render() {
     return (
-      <Color src={this.props.picture.strMealThumb} crossOrigin="anonymous" format="hex">
+      <Color src={this.props.recipe.strMealThumb} crossOrigin="anonymous" format="hex">
         {({ data, loading, error }) => {
           return (
-          <div className={this.state.recipeClassName} recipe style={{ backgroundColor: data }} onClick={() => this.props.showRecipe(this.props.picture)}>
-            <h1 className={this.state.titleClassName}>{this.props.picture.strMeal} </h1>
-            <img className={this.state.imgClassName} src={this.props.picture.strMealThumb} />
+          <div className={this.state.recipeClassName} recipe style={{ backgroundColor: data }} onClick={() => this.props.showRecipe(this.props.recipe)}>
+            <h1 className={this.state.titleClassName}>{this.props.recipe.strMeal} </h1>
+            <img className={this.state.imgClassName} src={this.props.recipe.strMealThumb} />
           </div>
         )}}
       </Color>
@@ -38,9 +38,9 @@ class ShuffledRecipe extends Component {
   }
 
   _formatIngredients() {
-    let ingredients = Object.keys(this.props.picture)
+    let ingredients = Object.keys(this.props.recipe)
       .filter((i) => i.includes('Ingredient'))
-      .map((i) => this._capitalize(this.props.picture[i]))
+      .map((i) => this._capitalize(this.props.recipe[i]))
       .filter(i => i);
 
     this.setState({

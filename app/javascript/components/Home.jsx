@@ -43,8 +43,8 @@ class Home extends Component {
     return (
       <div style={{ height: '100%', width: '100%' }}>
         <div className="shuffleContainer">
-          <ShuffledRecipe picture={this.state.local} showRecipe={this._showRecipe} position='left'/>
-          <ShuffledRecipe picture={this.state.external} showRecipe={this._showRecipe} position='right'/>
+          <ShuffledRecipe recipe={this.state.local} showRecipe={this._showRecipe} position='left'/>
+          <ShuffledRecipe recipe={this.state.external} showRecipe={this._showRecipe} position='right'/>
           <Shuffler shuffle={this._shuffle}/>
         </div>
         <div className={this.state.showRecipeClass}>
@@ -68,16 +68,17 @@ class Home extends Component {
 
   _showRecipe(currentRecipe) {
     if (this.state.currentTimeout) clearTimeout(this.state.currentTimeout);
-    const showRecipePosition = this.state.local.idMeal === currentRecipe.idMeal ? 'showRecipeRight' : 'showRecipeLeft';
+
     if (this.state.showRecipe) {
+      let showRecipePosition = this.state.local.idMeal === this.state.currentRecipe.idMeal ? 'showRecipeRight' : 'showRecipeLeft';
       this.setState({
         showRecipe: false,
         currentRecipe: null,
         showRecipeClass: `showRecipe ${showRecipePosition}`,
         currentTimeout: setTimeout(() => this._resetRecipePostion(), 500)
       });
-
     } else {
+      let showRecipePosition = this.state.local.idMeal === currentRecipe.idMeal ? 'showRecipeRight' : 'showRecipeLeft';
       this.setState({
         showRecipe: true,
         showRecipeStyle: { display: 'flex' },
