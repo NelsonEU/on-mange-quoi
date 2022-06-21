@@ -6,6 +6,7 @@
 }
 
 .shuffleContainer {
+  overflow: hidden;
   height: 100%;
   display: flex;
   align-items: center;
@@ -44,6 +45,7 @@
 
 .showRecipeLeft {
   left: 0;
+  width: 43%;
 }
 
 .showRecipeRight {
