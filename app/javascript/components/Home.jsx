@@ -41,11 +41,13 @@ class Home extends Component {
 
   _renderRecipes() {
     return (
-      <div className="shuffleContainer">
-        <ShuffledRecipe picture={this.state.local} showRecipe={this._showRecipe} position='left'/>
-        <ShuffledRecipe picture={this.state.external} showRecipe={this._showRecipe} position='right'/>
-        <Shuffler shuffle={this._shuffle}/>
-        <div className={this.state.showRecipeClass} style={this.state.showRecipeStyle}>
+      <div style={{ height: '100%' }}>
+        <div className="shuffleContainer">
+          <ShuffledRecipe picture={this.state.local} showRecipe={this._showRecipe} position='left'/>
+          <ShuffledRecipe picture={this.state.external} showRecipe={this._showRecipe} position='right'/>
+          <Shuffler shuffle={this._shuffle}/>
+        </div>
+        <div className={this.state.showRecipeClass}>
           <div>
             <h1>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
             terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
