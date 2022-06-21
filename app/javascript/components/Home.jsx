@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 import ShuffledRecipe from './ShuffledRecipe';
 import Shuffler from './Shuffler';
 import Loader from './Loader';
+import ShowRecipe from './ShowRecipe';
 
 class Home extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -16,8 +16,7 @@ class Home extends Component {
       showRecipe: false,
       currentRecipe: null,
       showRecipeClass: 'showRecipe',
-      currentTimeout: null,
-      showRecipeStyle: { display: 'none' }
+      currentTimeout: null
     };
 
     this._shuffle = this._shuffle.bind(this);
@@ -47,13 +46,7 @@ class Home extends Component {
           <ShuffledRecipe recipe={this.state.external} showRecipe={this._showRecipe} position='right'/>
           <Shuffler shuffle={this._shuffle}/>
         </div>
-        <div className={this.state.showRecipeClass}>
-          <div>
-            <h1>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-            labore wes anderson cred nesciunt sapiente ea proident.</h1>
-          </div>
-        </div>
+        <ShowRecipe recipe={this.state.currentRecipe} showRecipeClass={this.state.showRecipeClass}/>
       </div>
     )
   }
@@ -73,7 +66,6 @@ class Home extends Component {
       let showRecipePosition = this.state.local.idMeal === this.state.currentRecipe.idMeal ? 'showRecipeRight' : 'showRecipeLeft';
       this.setState({
         showRecipe: false,
-        currentRecipe: null,
         showRecipeClass: `showRecipe ${showRecipePosition}`,
         currentTimeout: setTimeout(() => this._resetRecipePostion(), 500)
       });
@@ -81,7 +73,6 @@ class Home extends Component {
       let showRecipePosition = this.state.local.idMeal === currentRecipe.idMeal ? 'showRecipeRight' : 'showRecipeLeft';
       this.setState({
         showRecipe: true,
-        showRecipeStyle: { display: 'flex' },
         currentRecipe: currentRecipe,
         currentTimeout: setTimeout(() => this._showRecipePosition(showRecipePosition), 100)
       })
@@ -96,8 +87,8 @@ class Home extends Component {
 
   _resetRecipePostion() {
     this.setState({
-      showRecipeClass: `showRecipe`,
-      showRecipeStyle: { display: 'none' }
+      currentRecipe: null,
+      showRecipeClass: `showRecipe`
     });
   }
 

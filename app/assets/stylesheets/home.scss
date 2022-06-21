@@ -1,6 +1,9 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+:root {
+  --main-theme: #f3aa20;
+}
 .home {
   height: 100%;
 }
@@ -22,32 +25,3 @@
   line-height: 18px;
 }
 
-.showRecipe {
-  overflow: hidden;
-  transition: bottom 0.5s ease-in-out, top 0.5s ease-in-out;
-  height: 100%;
-  position: absolute;
-  z-index: 2;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 64px;
-  bottom: 100%;
-  top: 100%;
-}
-
-.showRecipeActive {
-  bottom: unset !important;
-  top: 0 !important;
-}
-
-.showRecipeLeft {
-  left: 0% !important;
-  right: 50% !important;
-}
-
-.showRecipeRight {
-  left: 50% !important;
-  right: 0% !important;
-}
