@@ -41,7 +41,7 @@ class Home extends Component {
 
   _renderRecipes() {
     return (
-      <div style={{ height: '100%' }}>
+      <div style={{ height: '100%', width: '100%' }}>
         <div className="shuffleContainer">
           <ShuffledRecipe picture={this.state.local} showRecipe={this._showRecipe} position='left'/>
           <ShuffledRecipe picture={this.state.external} showRecipe={this._showRecipe} position='right'/>
