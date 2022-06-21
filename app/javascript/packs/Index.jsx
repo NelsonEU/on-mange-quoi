@@ -10,6 +10,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 document.addEventListener("DOMContentLoaded", () => {
   const div = document.createElement("div");
   div.style.height = "100%";
+  div.style.width = "100%";
+  div.style.overflow = "hidden";
   render(<App />, document.body.appendChild(div));
 });
 
