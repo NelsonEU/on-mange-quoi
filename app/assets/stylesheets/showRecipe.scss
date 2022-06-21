@@ -21,7 +21,7 @@
 .showRecipeLeft {
   left: 0%;
     right: 50%;
-  
+
     @media (max-width: 600px) {
       width: 100%;
       left: 0% !important;
@@ -34,7 +34,7 @@
 .showRecipeRight {
   left: 50%;
     right: 0%;
-  
+
     @media (max-width: 600px) {
       width: 100%;
       left: 0% !important;
@@ -43,9 +43,10 @@
         bottom: 0% !important;
       }
       }
-      
+
       .closeButton {
         position: absolute;
         top: 16px;
         right: 16px;
+        cursor: pointer;
 }
