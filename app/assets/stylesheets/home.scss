@@ -27,7 +27,6 @@
   transition: bottom 0.5s ease-in-out, top 0.5s ease-in-out;
   height: 100%;
   position: absolute;
-  width: 50%;
   z-index: 2;
   background-color: white;
   display: flex;
@@ -44,9 +43,11 @@
 }
 
 .showRecipeLeft {
-  left: 0;
+  left: 0% !important;
+    right: 50% !important;
 }
 
 .showRecipeRight {
-  left: 50%;
+  left: 50% !important;
+    top: 0% !important;
 }
