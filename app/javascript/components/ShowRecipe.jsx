@@ -34,6 +34,7 @@ class ShowRecipe extends Component {
   _renderRecipe() {
     return (
       <div>
+        <img className="closeButton" src="https://img.icons8.com/material-outlined/24/000000/delete-sign.png" onClick={() => this.props.hideRecipe(this.props.recipe)}/>
         <h1 className="main-color">{this.props.recipe.strMeal}</h1>
         <h2 className="main-color">Ingredients</h2>
         <ul>

@@ -20,3 +20,9 @@
 .shuffler:hover {
   transform: scale(1.25) translateY(-40%) translateX(-40%);
 }
+
+.shuffler.recipeShown {
+  @media (max-width: 600px) {
+    z-index: 2;
+  }
+}

@@ -40,13 +40,13 @@ class Home extends Component {
 
   _renderRecipes() {
     return (
-      <div style={{ height: '100%', width: '100%' }}>
+      <div style={{ height: '100%', width: '100%', overflow: 'hidden' }}>
         <div className="shuffleContainer">
           <ShuffledRecipe recipe={this.state.local} showRecipe={this._showRecipe} position='left'/>
           <ShuffledRecipe recipe={this.state.external} showRecipe={this._showRecipe} position='right'/>
-          <Shuffler shuffle={this._shuffle}/>
+          <Shuffler shuffle={this._shuffle} isRecipeShown={this.state.showRecipe}/>
         </div>
-        <ShowRecipe recipe={this.state.currentRecipe} showRecipeClass={this.state.showRecipeClass}/>
+        <ShowRecipe recipe={this.state.currentRecipe} showRecipeClass={this.state.showRecipeClass} hideRecipe={this._showRecipe}/>
       </div>
     )
   }
