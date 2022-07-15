@@ -1,7 +1,7 @@
 .showRecipe {
+  height: 100%;
   overflow: auto;
   transition: bottom 0.5s ease-in-out, top 0.5s ease-in-out;
-  height: 100%;
   position: absolute;
   z-index: 2;
   background-color: white;
@@ -9,8 +9,8 @@
   bottom: 100%;
   top: 100%;
   left: 0%;
-    right: 0%;
-@media (max-width: 600px) {
+  right: 0%;
+  @media (max-width: 600px) {
     transition: left 0.5s ease-in-out, right 0.5s ease-in-out, bottom 0.5s ease-in-out, top 0.5s ease-in-out;
   }
 }
